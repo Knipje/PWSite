@@ -15,14 +15,6 @@
 
 			$(document).ready(function () {
 
-				$('.home').click(function () {
-					if ($(window).width() > 1005){
-						$('html, body').animate({
-							scrollTop: ($('body').first().offset().top - 50)
-						}, 500);
-					}
-				});
-
 				$('.headercont').click(function(){
 					if ($(window).width() < 1006){
 						$('.mobilemenu').toggle();
@@ -30,54 +22,26 @@
 				});
 				
 				$('.exp').click(function () {
-					if ($(window).width() > 1005){
-						$('html, body').animate({
-							scrollTop: ($('#l2').first().offset().top - 50)
-						}, 500);
-					}else{
+					if ($(window).width() < 1005){
 						$('.mobilemenu').toggle();
-						$('html, body').animate({
-							scrollTop: ($('#l2').first().offset().top - 50)
-						}, 500);
 					}
 				});
 
 				$('.about').click(function () {
-					if ($(window).width() > 1005) {
-						$('html, body').animate({
-							scrollTop: ($('#l1').first().offset().top - 50)
-						}, 500);
-					} else {
+					if ($(window).width() < 1005) {
 						$('.mobilemenu').toggle();
-						$('html, body').animate({
-							scrollTop: ($('#l1').first().offset().top - 50)
-						}, 500);
 					}
 				});
 
 				$('.download').click(function () {
-					if ($(window).width() > 1005) {
-						$('html, body').animate({
-							scrollTop: ($('#l3').first().offset().top - 50)
-						}, 500);
-					} else {
+					if ($(window).width() < 1005) {
 						$('.mobilemenu').toggle();
-						$('html, body').animate({
-							scrollTop: ($('#l3').first().offset().top - 50)
-						}, 500);
 					}
 				});
 
 				$('.quest').click(function () {
-					if ($(window).width() > 1005) {
-						$('html, body').animate({
-							scrollTop: ($('#l4').first().offset().top - 50)
-						}, 500);
-					} else {
+					if ($(window).width() < 1005) {
 						$('.mobilemenu').toggle();
-						$('html, body').animate({
-							scrollTop: ($('#l4').first().offset().top - 50)
-						}, 500);
 					}
 				});
 											
@@ -126,11 +90,12 @@
 		.about,.home,.download,.exp,.quest{
 			padding-left: 25px;
 			padding-right: 25px;
+			color: #d3d3d3;
 		}
 
 		.header{
 			position: fixed;
-			background: rgba(37, 37, 37, 1);
+			background: rgb(37, 37, 37);
 			color: #d3d3d3;
 			width: 100%;
 			left: 0;
@@ -143,7 +108,7 @@
 			box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
 		}
 
-		.header #mainname{
+		.header .home{
 			font-size: 35pt;
 		}
 
@@ -182,10 +147,15 @@
 
 		.line{
 			padding: 10px;
+			padding-bottom: 20px;
 			border-bottom: 2px solid darkgrey;
 			width: 80%;
 			margin-left: auto;
 			margin-right: auto;
+		}
+
+		.homemob{
+			display: none;
 		}
 
 		.discord{
@@ -212,8 +182,9 @@
 			box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.5);	
 		}
 
-		.mobilemenu div{
+		.mobilemenu div,.mobilemenu a{
 			display: block;
+			text-decoration:none;
 		}
 
 		.commands td{
@@ -241,11 +212,23 @@
 				display: none;
 			}
 
+			.line{
+				padding-bottom: 25px;
+			}
+
+			.homea{
+				display: none;
+			}
+
+			.homemob{
+				display: inline-block;
+			}
+
 			.header *{
 				padding: 0;
 			}
 
-			.header #mainname{
+			.header .home{
 				display: inline-block;
 				vertical-align: middle;
 			}
@@ -262,7 +245,7 @@
 		}
 
 		@media screen and (max-width: 400px){
-			.header #mainname{
+			.header .home{
 				font-size: 25pt;
 			}
 
@@ -272,7 +255,7 @@
 		}
 
 		@media screen and (max-width: 283px){
-			.header #mainname{
+			.header .home{
 				font-size: 15pt;
 			}
 		}
@@ -282,24 +265,25 @@
 	<body>
 		<div class="header">
 			<div class="headercont">
-				<div class="about">About</div>
-				<div class="exp">Tutorial</div>
-				<div class="home" id='mainname'>Portal World</div>
-				<div class="download">Download</div>
-				<div class="quest">FAQ</div>
+				<a href="#about"><div class="about">About</div></a>
+				<a href="#tutorial"><div class="exp">Tutorial</div></a>
+				<a class="homea" href="."><div class="home">Portal World</div></a>
+				<div class="homemob"><div class="home">Portal World</div></div>
+				<a href="#download"><div class="download">Download</div></a>
+				<a href="#faq"><div class="quest">FAQ</div></a>
 			</div>
 			<div class='mobilemenu'>
-				<div class="about">About</div>
-				<div class="exp">Tutorial</div>
-				<div class="download">Download</div>
-				<div class="quest">FAQ</div>
+				<a href="#about"><div class="about">About</div></a>
+				<a href="#tutorial"><div class="exp">Tutorial</div></a>
+				<a href="#download"><div class="download">Download</div></a>
+				<a href="#faq"><div class="quest">FAQ</div></a>
 			</div>
 		</div>
 
 		<div class='maincontainer'>
 			<div class="line"></div>
 			<h1><b>This project is still in alpha, please report any bugs <a href='https://github.com/Knipje/Portal-World/issues/new?assignees=&labels=&template=bug_report.md&title='>here</a>. Have a suggestion? <a href="https://github.com/Knipje/Portal-World/issues/new?assignees=&labels=&template=feature_request.md&title=">Click here</a>.</b></h2>
-			<div id="l1" class="line"></div>
+			<div id="about" class="line"></div>
 			<div class="aboutcontainer">
 				<h1>About</h1>
 				<p>Portal World is a Portal 2 streaming bot inspired by Warp World. Like Warp World, the tool allows viewers to submit levels for the streamer to play. The difference is that this application was made for Portal 2 custom levels instead of Super Mario Maker levels. However <b>it does work with all steam workshop items</b> and is thus not limited to only Portal 2 levels, the aesthetics are tooled towards that game though. </p>
@@ -317,7 +301,7 @@
 				
 			</div>
 
-			<div id="l2" class="line"></div>
+			<div id="tutorial" class="line"></div>
 			<div class="expcontainer">
 				<h1>Tutorial</h1>
 				<h2>Initial setup</h2>
@@ -401,7 +385,7 @@
 				<p>Please remember to shut down the interface first and the console shortly thereafter in order to ensure it closes smoothly.</p>
 			</div>
 
-			<div id="l3" class="line"></div>
+			<div id="download" class="line"></div>
 			<div class="dlcontainer">
 				<h1>Download</h1>
 				<div class='comcont'>
@@ -466,7 +450,7 @@
 				</div>
 			</div>
 
-			<div id="l4" class="line"></div>
+			<div id="faq" class="line"></div>
 			<div class="faqcont">
 				<h1>FAQ</h1>
 				<div class='comcont'>
