@@ -314,14 +314,17 @@
 				</div>
 				<div class="line" style="margin-top:-20px;"></div>
 				<p>
-					In this example the bot will be active on Knipje's channel using their own account, allow every user to submit up to 3 levels at any given moment, listen to commands starting with ! and has a help command set to commands (so !commands in chat).
+					In this example the bot will be active on Knipje's channel using their own account, allow every user to submit up to 3 levels at any given moment, listen to commands starting with ! and has a help command set to commands (so !commands in chat).  Also the queue command will cap off at showing 10 levels to prevent chat clogging.
 				</p>
 				<p>
-					After you have filled in the settings entirely you can launch queuebot.exe (or any shortcuts you may have made during installation) and, if all went well, will be greeted with a menu saying there are no levels in the queue, if you do not get this window please check if you filled everything in correctly or submit a bug report <a href='https://github.com/Knipje/Portal-World/issues'>here</a>.
+					After you have filled in the settings entirely you can launch Portal_World.exe (or any shortcuts you may have made during installation) and, if all went well, will be greeted with a menu saying there are no levels in the queue, if you do not get this window please check if you filled everything in correctly or submit a bug report <a href='https://github.com/Knipje/Portal-World/issues'>here</a>.
 				</p>
 				<h2>Setting up the stream bar</h2>
 				<p>
 					Setting up the stream bar is relatively easy, you will need to have the program running in order to make it work. Firstly add a new browser source leading to localhost:8000, then fill in the correct width of your stream (most likely 1980) and crop and move the bar as needed. You will know everything is working correctly if the console is getting spammed with messages with code 200, <b>please ignore these</b> as they're mainly used by me for bugfixing.
+				</p>
+				<p>
+					Optionally, you could also set your personal queue screen up to be displayed on stream in a similar manner, to do this follow all steps above but have the browser source lead to localhost:8000/queue.html instead.
 				</p>
 				<h2>Chat commands</h2>
 				<p>
@@ -342,9 +345,15 @@
 							</tr>
 							<tr>
 								<td>!remove</td>
-								<td>[Level name]</td>
+								<td>[Level name or url]</td>
 								<td>!delete</td>
 								<td>Removes a level to the queue</td>
+							</tr>
+							<tr>
+								<td>!promote</td>
+								<td>[Level name or url]</td>
+								<td></td>
+								<td>Promotes a level be the next level in the queue, <b>mod only command</b></td>
 							</tr>
 							<tr>
 								<td>!list</td>
@@ -395,6 +404,11 @@
 							<th>Version</th>
 							<th>Download link</th>
 							<th>Notes</th>
+						</tr>
+						<tr>
+							<td>0.5.0</td>
+							<td><a href='https://github.com/Knipje/Portal-World/releases/tag/v0.5.0'>https://github.com/Knipje/Portal-World/releases/tag/v0.5.0</a></td>
+							<td>Max lock update</td>
 						</tr>
 						<tr>
 							<td>0.4.1</td>
